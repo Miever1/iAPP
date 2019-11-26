@@ -1,37 +1,67 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/login.css">
-    <link rel="stylesheet" href="../static/node_modules/normalize.css/normalize.css">
-</head>
-<body>
-    <div class="warpper">
-        <div class="head-box">
-            <div class="header">
-                <h1>Welcome</h1>
-            </div>
-        </div>
-        <div class="main-box">
-            <div class="main-box-content">
-                <div class="login-box">
-                    <div class="login-head">
-                        <p>login</p>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Fullscreen Responsive Register Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'>
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/css/signup.css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="logo span4">
+                        <h1><a href="">Welcome to iApp<span class="red">.</span></a></h1>
                     </div>
-                    <div class="login-form">
-                        <form action="">
-                            <span>账号：</span><input type="text" class="info-box">
-                            <span>密码：</span><input type="password" class="info-box">
-                            <a href="./index" class="login-btn">登录</a>
-                        </form>
+                    <div class="links span8">
+                        <a class="blog" href="/signup" rel="tooltip" data-placement="bottom" >注册</a>
                     </div>
-                    <a href="./signup">注册账号</a>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+
+        <div class="register-container container">
+            <div class="row">
+                <div class="register span6">
+                    <form>
+                        <h2>Welcome To <span class="red"><strong>iAPP</strong></span></h2>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="choose a username...">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Please confirm your password...">
+                        
+                    </form>
+                    <button  id="mybtn">Log In</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascript -->
+        <script src="../static/js/jquery-1.8.2.min.js"></script>
+        <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../static/js/jquery.backstretch.min.js"></script>
+        <script src="../static/js/scripts.js"></script>
+        <script src="../static/js/login.js"></script>
+
+    </body>
+
 </html>
+

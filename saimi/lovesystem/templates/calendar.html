@@ -18,6 +18,12 @@
                 </div>
                 <div class="main-box">
                 <div class="main-box-content">
+                    {% for calendar in calendars %}
+                        <div>
+                            <p>{{calendar.memoryname}}</p>
+                            <p>{{calendar.passedDays}}</p>
+                        </div>
+                    {% endfor %}
                      <a href="./index">back</a>  
                 </div>
                 </div>

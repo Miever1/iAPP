@@ -19,6 +19,12 @@
         <div class="main-box">
             <div class="main-box-content">
                 <a href="./index">back</a>
+                {% for journal in journals %}
+                    <div>
+                        <h2>{{journal.title}}</h2>
+                        <p>{{journal.content}}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
