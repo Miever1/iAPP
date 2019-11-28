@@ -63,7 +63,7 @@ def reset(request):
         origin_password = request.POST['origin_password']
         new_password = request.POST['new_password']
         response_json = {}
-        if len(User.objects.filter(id=id, password=origin_password)) > 0:
+        if len(User.objects.filter(id=id, password=origin_password)) > 0:   
             user = User.objects.get(id=id)
             user.password = new_password
             user.save()
@@ -78,7 +78,7 @@ def reset(request):
 def journal(request):
     user_id = request.COOKIES.get('user_id')
     journals = Journal.objects.filter(createdBy=user_id)
-    return render(request,"journal.html", {'journals': journals})
+    return render(request,"blog.html", {'journals': journals})
 
 # 创建日志
 def createJournal(request):
@@ -129,7 +129,7 @@ def calendar(request):
         my_calendars = []
         for calendar in calendars:
             my_calendars.append(MyCalendar(calendar))
-        response = render(request, "calendar.html", {'calendars': my_calendars})
+        response = render(request, "timecapsule.html")
         return response
 
 # 创建纪念日

@@ -1,0 +1,13 @@
+.dropDown {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    position: absolute;
+    display: none;
+}
+
+.dropDown li {
+    height: 48px;
+    line-height: 48px;
+}

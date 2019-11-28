@@ -24,7 +24,7 @@ urlpatterns = [
     path('signup',signup),
     path('index',index),
     path('reset',reset),
-    path('journal',journal),
+    path('blog',journal),
     path('createJournal',createJournal),
     path('editJournal', editJournal),
     path('deleteJournal', deleteJournal),

@@ -11,8 +11,8 @@ $(document).ready(function(){
                 var msg = data;
                 if(msg.status == 'success') {
                     alert("登录成功!");
-                    document.cookie = "user_id=" + msg.user.id
-                    window.location.href = "/index"
+                    window.location.href = "/index";
+                    document.cookie = "user_id=" + msg.user.id;
                 }
                 else {
                     setTimeout(() => {

@@ -1,0 +1,38 @@
+.blogcreate {
+    width: 50%;
+    height: 50%;
+    background-color: pink;
+    position: fixed;
+    left: 25%;
+    top: 25%; 
+    border-radius: 10px;
+    display: none;
+}
+
+.blogcreate button {
+    position: absolute;
+    right: 5px;
+}
+
+.blogcreate article {
+    background-color: skyblue;
+    margin: 0;
+    height: 100%;
+}
+
+
+.blogcreate .art-header input {
+    width: 100%;
+    font-size: 28px;
+}
+
+.blogcreate .art-content p {
+    margin: 0;
+}
+
+.blogcreate .art-content textarea {
+    width: 100%;
+    font-size: 16px;
+    resize: none;
+    height: 100%;
+}

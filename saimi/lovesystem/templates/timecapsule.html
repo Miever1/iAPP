@@ -15,6 +15,8 @@
     <link href="../static/css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="../static/fonts/stylesheet.css">
 	<link href="../static/css/mb-comingsoon-iceberg.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/timecapsule.css">
 	
 	<!-- Custom Fonts -->
     <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -22,6 +24,9 @@
 	<!-- jQuery and Modernizr-->
 	<script src="../static/js/jquery-2.1.1.js"></script>
 	<script src="../static/js/modernizr.custom.97074.js"></script>
+	<script src="../static/js/laydate/laydate.js"></script>
+	<script src="../static/js/index.js"></script>
+	<script src="../static/js/timecapsule.js"></script>
 
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,47 +43,56 @@
 <body class="sub-page">
 	
 	<!-- /////////////////////////////////////////Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Your Wedding</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav nav-justified ">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="active">
-                        <a class="page-scroll" href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="archive.html">Blog</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="single.html">Time Capsule</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#">Tree</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="#">Album</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+	<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand page-scroll" href="#page-top">Your Wedding</a>
+				</div>
+	
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav nav-justified ">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li class="active">
+							<a class="page-scroll" href="/index">Home</a>
+						</li>
+						<li class="blogitem">
+							<a class="page-scroll" href="/blog">Blog</a>
+							<ul class="dropDown">
+								<li id="createindex"><a href="javascript:void(0);">BLOG CREATE</a></li>
+								<li><a href="javascript:void(0);">2</a></li>
+								<li><a href="javascript:void(0);">3</a></li>
+							</ul>
+						</li>
+						<li class="timecapsule">
+							<a class="page-scroll" href="/calendar">Time Capsule</a>
+							<ul class="dropDown">
+								<li id="createMemorial"><a href="javascript:void(0);">memorial day setting</a></li>
+								<li><a href="javascript:void(0);">2</a></li>
+								<li><a href="javascript:void(0);">3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a class="page-scroll" href="#">Tree</a>
+						</li>
+						<li>
+							<a class="page-scroll" href="#">Album</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
 	<!-- Navigation -->
 	
 	<header class="time-hd">
@@ -91,6 +105,27 @@
 	<!-- Header -->
 	
 	<!-- /////////////////////////////////////////Content -->
+
+	<div class="memorialcreate">
+		<div class="memorial-container">
+			<div class="memorial span6">
+				<div class="memoryform">
+					<button id="cancelbtn">X</button>
+					<h2>CREATE <span class="red"><strong>Memory</strong></span></h2>
+					<label for="itemname">memory name</label>
+					<input type="text" name="itemname" placeholder="Please fill in the memory name...">
+					<label for="itemcontent">memory content</label>
+					<textarea name="itemcontent" cols="30" rows="10" placeholder="Please fill in the memory content..."></textarea>
+					<label for="itemdate">memory date</label>
+					<input id="date" name="itemdate" placeholder="Please choose the memory date...">	
+					<button id="memorial-btn">Submit</button>	
+				</div>
+			</div>
+		</div>
+			
+	</div>
+
+
 	<div id="page-content">
 		<div class="container">
 			<div class="row">
@@ -113,6 +148,15 @@
 			</div>
 		</div>
 	</div>
+
+	{% for calendar in calendars %}
+        <div>
+            <p>{{calendar.memoryname}}</p>
+            <p>{{calendar.passedDays}}</p>
+        </div>
+    {% endfor %}
+
+	
 	
 	<footer>
 		<div class="wrap-footer">
@@ -163,6 +207,9 @@
 		
 			$(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
 
+		});
+		laydate.render({
+  		elem: '#date' //指定元素
 		});
 	</script>
 	
