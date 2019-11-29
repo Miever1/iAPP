@@ -129,7 +129,7 @@ def calendar(request):
         my_calendars = []
         for calendar in calendars:
             my_calendars.append(MyCalendar(calendar))
-        response = render(request, "timecapsule.html")
+        response = render(request, "timecapsule.html",{'calendars': my_calendars})
         return response
 
 # 创建纪念日

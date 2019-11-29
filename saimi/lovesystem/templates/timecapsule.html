@@ -76,7 +76,7 @@
 						<li class="timecapsule">
 							<a class="page-scroll" href="/calendar">Time Capsule</a>
 							<ul class="dropDown">
-								<li id="createMemorial"><a href="javascript:void(0);">memorial day setting</a></li>
+								<li id="createMemorial"><a href="javascript:void(0);">memorial day creating</a></li>
 								<li><a href="javascript:void(0);">2</a></li>
 								<li><a href="javascript:void(0);">3</a></li>
 							</ul>
@@ -133,7 +133,7 @@
 					<div class="container">
 						<div class="row heading">
 							 <div class="col-lg-12">	
-								<h2>To rukiya's birthday left</h2>
+								<h2>To Love Anniversary Left</h2>
 							</div>
 						</div>
 						<div class="row">
@@ -150,10 +150,17 @@
 	</div>
 
 	{% for calendar in calendars %}
-        <div>
-            <p>{{calendar.memoryname}}</p>
-            <p>{{calendar.passedDays}}</p>
-        </div>
+	<div class="calendar-show" id= "mycalendar-{{calendar.id}}">
+		<div class="calendar-header">
+			<h2><span>{{calendar.memoryname}}</span><span>{{calendar.memorydate}}</span></h2>
+		</div>
+		<div class="calendar-content">
+				<p>{{calendar.memorycontent}}</p>
+				<span>from {{calendar.memoryname}} has passed</span><span> {{calendar.passedDays}} </span>days
+				<button class="editbtn" id="btn-{{calendar.id}}">EDIT</button>
+		</div>
+	</div>
+	<hr>
     {% endfor %}
 
 	
@@ -193,7 +200,7 @@
     <script src="../static/js/jquery.mb-comingsoon.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            $('#myCounter').mbComingsoon({ expiryDate: new Date(2020, 9, 6, 0, 0), speed:100 });
+            $('#myCounter').mbComingsoon({ expiryDate: new Date(2020, 9, 29, 0, 0), speed:100 });
             setTimeout(function () {
                 $(window).resize();
             }, 200);

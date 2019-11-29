@@ -182,3 +182,30 @@ a:hover { text-decoration: none; }
     margin: 0;
 }
 
+
+/*time table*/
+.calendar-show {
+    width: 64%;
+    margin: 0 auto;
+    
+    max-width: 1180px;
+    
+}
+
+.calendar-header span:nth-child(2) {
+    float: right;
+}
+
+.calendar-content span:last-child {
+    font-size: 28px;
+    font-weight: 600;
+    color: #DE5781;
+}
+
+.calendar-content button {
+    float: right;
+    border: none;
+    background-color: #ccc;
+    color: #fff;
+}
+
