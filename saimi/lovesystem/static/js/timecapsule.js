@@ -1,17 +1,13 @@
-function getCookie(cookieName){  
-    var cookieValue="";  
-    if (document.cookie && document.cookie != '') {   
-        var cookies = document.cookie.split(';');  
-        for (var i = 0; i < cookies.length; i++) {   
-             var cookie = cookies[i];  
-             if (cookie.substring(0, cookieName.length + 2).trim() == cookieName.trim() + "=") {  
-                   cookieValue = cookie.substring(cookieName.length + 2, cookie.length);   
-                   break;  
-             }  
-         }  
-    }   
-    return cookieValue;  
-}
+function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]);
+    else
+        return null;
+}   
 
 $(document).ready(function(){
     $("#cancelbtn").click(function(){
@@ -23,7 +19,6 @@ $(document).ready(function(){
         let memorycontent = $(".memoryform textarea[name = 'itemcontent']").val();
         let memorydate =$(".memoryform input[name = 'itemdate']").val();
         let convertDate = new Date(memorydate).valueOf()/1000;
-
         let userid = getCookie("user_id");
         
         $.ajax({
@@ -48,14 +43,14 @@ $(document).ready(function(){
 
     $(".editbtn").click(function() {
 
-        let parentId = "mycalendar-" + $(".editbtn").attr("id");
+        let parentId = "mycalendar-" + $(this).attr("id");
         parentId = parentId.replace("-btn","");
+        let id = parentId.replace("mycalendar-","");
+        console.log(id);
 
         let itemname = $("#" + parentId + " h2 span:first-child").text();
         let itemcontent = $("#" + parentId + " p").text();
-        let itemdate = $("#" + parentId + " h2 span:last-child").text();
-
-        console.log(itemname,itemcontent,itemdate);
+        let itemdate = $("#" + parentId + " h2 span:last-child").text();   
         
 
         //time formatting
@@ -70,9 +65,10 @@ $(document).ready(function(){
         $(".memorialcreate input[name = 'itemname']").val(itemname);
         $(".memoryform textarea[name = 'itemcontent']").val(itemcontent);
         $(".memorialcreate input[name = 'itemdate']").val(converDate);     
+        $(".memorialcreate #memorial-btn").css("display","none");  
         $(".memorialcreate").show();
 
-        $(".memorialcreate button:last-child").attr("id","editCalendar");  
+        
 
         $("#editCalendar").click(function () {  
 
@@ -80,17 +76,18 @@ $(document).ready(function(){
                 let memorycontent = $(".memoryform textarea[name = 'itemcontent']").val();
                 let memorydate =$(".memoryform input[name = 'itemdate']").val();
                 let convertDate = new Date(memorydate).valueOf()/1000;
+                let userid = getCookie("user_id");
 
             $.ajax({
                 type: "post",
                 url: "/editCalendar",
-                data: {"user_id":userid,"memoryname":memoryname,"memorycontent":memorycontent,"memorydate":convertDate,"id":parentId},
+                data: {"user_id":userid,"memoryname":memoryname,"memorycontent":memorycontent,"memorydate":convertDate,"id":id},
                 dataType: "JSON",
                 success: function (data) {
                     let msg = data;
                     if(msg.status == "success") {
                         alert("edit success");
-                        window.location.href = "/index";
+                        window.location.href = "/calendar";
                     }
     
                     else {
@@ -99,7 +96,34 @@ $(document).ready(function(){
                     
                 }
             });   
+
+            
         })
         
+    })
+
+    $(".calendar-content button").click(function () {  
+        let deleteId = $(this).attr("id");
+        deleteId = deleteId.replace("del-","");
+        let userid = getCookie("user_id");
+        $.ajax({
+            type: "get",
+            url: "/deleteCalendar",
+            data: {"user_id":userid,"id":deleteId},
+            dataType: "JSON",
+            success: function (data) {
+                let msg = data;
+                if(msg.status == "success") {
+                    alert("delete success");
+                    window.location.href = "/calendar";
+                }
+
+                else {
+                    alert(msg.message);
+                }
+                
+            }
+        });   
+        console.log(deleteId,userid);
     })
 });

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="">
 	
-    <title>Your Wedding</title>
+    <title>iApp</title>
 	
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -35,9 +35,7 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
 	<![endif]-->
-	<style>
-		
-	</style>
+
 </head>
 
 <body class="sub-page">
@@ -69,16 +67,12 @@
 							<a class="page-scroll" href="/blog">Blog</a>
 							<ul class="dropDown">
 								<li id="createindex"><a href="javascript:void(0);">BLOG CREATE</a></li>
-								<li><a href="javascript:void(0);">2</a></li>
-								<li><a href="javascript:void(0);">3</a></li>
 							</ul>
 						</li>
 						<li class="timecapsule">
 							<a class="page-scroll" href="/calendar">Time Capsule</a>
 							<ul class="dropDown">
-								<li id="createMemorial"><a href="javascript:void(0);">memorial day creating</a></li>
-								<li><a href="javascript:void(0);">2</a></li>
-								<li><a href="javascript:void(0);">3</a></li>
+								<li id="createMemorial"><a href="javascript:void(0);">memorial creating</a></li>
 							</ul>
 						</li>
 						<li>
@@ -86,6 +80,14 @@
 						</li>
 						<li>
 							<a class="page-scroll" href="#">Album</a>
+						</li>
+						<li class="user">
+							<a class="page-scroll" href="#">User</a>
+							<ul class="dropDown">
+								<li id="cancellation"><a href="javascript:void(0);">Cancellation</a></li>
+								<li id="logout"><a href="javascript:void(0);">log out</a></li>
+								<li><a href="javascript:void(0);">reset password</a></li>
+							</ul>
 						</li>
 					</ul>
 				</div>
@@ -118,7 +120,8 @@
 					<textarea name="itemcontent" cols="30" rows="10" placeholder="Please fill in the memory content..."></textarea>
 					<label for="itemdate">memory date</label>
 					<input id="date" name="itemdate" placeholder="Please choose the memory date...">	
-					<button id="memorial-btn">Submit</button>	
+					<button id="memorial-btn">Create</button>	
+					<button id="editCalendar">Edit</button>
 				</div>
 			</div>
 		</div>
@@ -157,6 +160,7 @@
 		<div class="calendar-content">
 				<p>{{calendar.memorycontent}}</p>
 				<span>from {{calendar.memoryname}} has passed</span><span> {{calendar.passedDays}} </span>days
+				<button id="del-{{calendar.id}}">Delete</button>
 				<button class="editbtn" id="btn-{{calendar.id}}">EDIT</button>
 		</div>
 	</div>

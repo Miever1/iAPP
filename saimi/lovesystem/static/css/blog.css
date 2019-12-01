@@ -10,8 +10,7 @@
 }
 
 .blogcreate button {
-    position: absolute;
-    right: 5px;
+   float: right;
 }
 
 .blogcreate article {

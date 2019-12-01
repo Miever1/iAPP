@@ -35,7 +35,6 @@ POST /signup
 |  status  |  'success/fail' |
 |  message |  '注册成功'  |
 
-
 ### 注销
 
 GET /logout
@@ -215,7 +214,7 @@ POST /editTree
 |  status  |  'success/fail' |
 |  message |  '修改成功'  |
 
-### 删除 Journal
+### 删除 Tree
 
 GET /deleteTree
 

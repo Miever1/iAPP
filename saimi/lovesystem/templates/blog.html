@@ -65,16 +65,12 @@
 						<a class="page-scroll" href="/blog">Blog</a>
 						<ul class="dropDown">
 							<li id="createindex"><a href="javascript:void(0);">BLOG CREATE</a></li>
-							<li><a href="javascript:void(0);">2</a></li>
-							<li><a href="javascript:void(0);">3</a></li>
 						</ul>
                     </li>
                     <li class="timecapsule">
 						<a class="page-scroll" href="/calendar">Time Capsule</a>
 						<ul class="dropDown">
 							<li id="createMemorial"><a href="javascript:void(0);">memorial day setting</a></li>
-							<li><a href="javascript:void(0);">2</a></li>
-							<li><a href="javascript:void(0);">3</a></li>
 						</ul>
                     </li>
                     <li>
@@ -106,7 +102,7 @@
 			<div class="row">
 				<div id="main-content" class="col-md-8">
 					{% for journal in journals %}
-					<article>
+					<article id="article-{{journal.id}}">
 						<div class="art-header">
 							<a href="#"><h2>{{journal.title}}</h2></a>
 							<div class="info">By <a href="#">Admin</a> June 12, 2015 - 0 Comments</div>
@@ -114,7 +110,9 @@
 						<div class="art-content">
 							<img src="../static/images/10.jpg" />
 							<p>{{journal.content|safe|linebreaksbr}}</p>
-							<button type="submit" class="btn btn-skin f-right">edit</button>
+							
+							<button id="edit-{{journal.id}}" class="btn btn-skin f-right">edit</button>
+							<button id="del-{{journal.id}}" class="btn btn-skin f-right">delete</button>
 						</div>
 					</article>
 					{% endfor %}	
@@ -128,12 +126,13 @@
 			<button class="cancelbtn">x</button>
 			<div class="art-header">
 				<h2>请攥写文章标题</h2>
-				<input id="article-hd" type="text">
+				<input id="article-hd" name="itemtitle" type="text">
 			</div>
 			<div class="art-content">
 				<p>请攥写文章内容</p>
-				<textarea name="" id="article-bd" cols="30" rows="10"></textarea>
-				<button id="createbtn" class="btn btn-skin f-right">SUBMIT</button>
+				<textarea name="itemcontent" id="article-bd" cols="30" rows="10"></textarea>
+				<button id="createbtn" class="btn btn-skin f-right">create</button>
+				<button id="editsubmit" class="btn btn-skin f-right">edit</button>
 			</div>
 		</article>	
 	</div>
