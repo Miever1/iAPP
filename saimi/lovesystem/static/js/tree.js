@@ -59,6 +59,29 @@ $(document).ready(function () {
         });  
     })
 
+    $(".kettle").click(function () {  
+        let treeid = $("#treeId").text();
+        let userid = getCookie("user_id");   
+        $.ajax({
+            type: "post",
+            url: "/tree",
+            dataType: "JSON",
+            success: function (data) {      
+                let msg = data;
+                $.ajax({
+                    type: "get",
+                    url: "/addWater",
+                    data: {"id":treeid,"user_id":userid},
+                    dataType: "JSON",
+                    success: function (data) {      
+                        let watersize = msg.watersize;
+                        $("#waterSize").val(watersize);
+                    }
+                });  
+            }
+        });  
+    })
+
     
 
     $("#deleteTree").click(function () {  

@@ -175,8 +175,23 @@ def deleteCalendar(request):
 # ------------- 爱情树 ------------- #
 def lovetree(request):
     if request.method == "GET":
-        tree = LoveTree.objects.all().first()
+        tree = LoveTree.objects.filter(createdBy=int(request.COOKIES['user_id']))
+        if  len(tree)==1:
+            tree = tree[0]
+        else:
+            tree = None
         return render(request, 'tree.html', {'tree': tree})
+    elif request.method == "POST":
+        mytree = LoveTree.objects.filter(createdBy=int(request.COOKIES['user_id']))
+        if  len(mytree)==1:
+            mytree = mytree[0]
+        else:
+            mytree = None
+        tree =  {
+                    'treename':mytree.treename,
+                    'watersize':mytree.watersize,
+        }
+        return JsonResponse(tree)
 
 def createTree(request):
     if request.method == "POST":
@@ -203,7 +218,7 @@ def deleteTree(request):
     if request.method == "GET":
         id = request.GET['id']
         tree = LoveTree.objects.get(id=id)
-        if int(tree.createdBy) != int(request.POST['user_id']):
+        if int(tree.createdBy) != int(request.GET['user_id']):
             response_json = {'status':'fail', 'message':'没有权限删除'}
         else:
             tree.delete()
@@ -214,7 +229,7 @@ def addWater(request):
     if request.method == "GET":
         id = request.GET['id']
         tree = LoveTree.objects.get(id=id)
-        if int(tree.createdBy) != int(request.POST['user_id']):
+        if int(tree.createdBy) != int(request.GET['user_id']):
             response_json = {'status':'fail', 'message':'没有权限浇水'}
         else:
             tree.add_water()
