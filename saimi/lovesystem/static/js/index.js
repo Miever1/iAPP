@@ -31,12 +31,16 @@ $(document).ready(function(){
     );
 
     $("#createindex").click(function() {
-        $(".blogcreate").show();}
+        $(".blogcreate #editsubmit").hide();
+        $(".blogcreate").show();
+
+        }
     );
 
     $("#createMemorial").click(function() {
 
         if(window.location.href == "http://localhost:8001/calendar") {
+            $("#editCalendar").hide();
             $(".memorialcreate").show();
         }
 
@@ -59,7 +63,6 @@ $(document).ready(function(){
             success: function (data) {
                 let msg = data;
                 if(msg.status == "success") {
-                    $.removeCookie("user_id");
                     alert("Cancellation success");
                     window.location.href = "/login";
                 }
@@ -76,7 +79,37 @@ $(document).ready(function(){
         alert("logout success !");
         window.location.href = "/login";
     })
+
+    $("#reset").click(function () {  
+        $(".usersetting").show();
+    })
+
+    $(".cancelBtn").click(function () {  
+        $(".usersetting").hide();
+    })
     
+    $("#userSubmit").click(function () {  
+        let oldpassword = $(".usersetting input[name = 'oldpassword']").val();
+        let newpassword = $(".usersetting input[name = 'newpassword']").val();
+        let userid = getCookie("user_id");
+        $.ajax({
+            type: "post",
+            url: "/reset",
+            data: {"id":userid,"origin_password":oldpassword,"new_password":newpassword},
+            dataType: "JSON",
+            success: function (data) {
+                let msg = data;
+                if(msg.status == "success") {
+                    alert("reset password successfully");
+                    window.location.href = "/login";
+                }
+                else {
+                    alert(msg.message);
+                }
+                
+            }
+        });   
+    })
    
 });
 

@@ -33,6 +33,7 @@ urlpatterns = [
     path('createCalendar', createCalendar),
     path('editCalendar', editCalendar),
     path('deleteCalendar', deleteCalendar),
+    path('tree',lovetree),
     path('createTree', createTree),
     path('editTree', editTree),
     path('deleteTree', deleteTree),

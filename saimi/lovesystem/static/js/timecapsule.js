@@ -15,6 +15,7 @@ $(document).ready(function(){
     });
 
     $("#memorial-btn").click(function() {
+        $("#editCalendar").hide();
         let memoryname = $(".memoryform input[name = 'itemname']").val();
         let memorycontent = $(".memoryform textarea[name = 'itemcontent']").val();
         let memorydate =$(".memoryform input[name = 'itemdate']").val();
@@ -29,8 +30,8 @@ $(document).ready(function(){
             success: function (data) {
                 let msg = data;
                 if(msg.status == "success") {
-                    alert("hello world success");
-                    //window.location.href = "/index";
+                    alert("calendar created successfully");
+                    window.location.href = "/calendar";
                 }
                 else {
                     alert(msg.message);

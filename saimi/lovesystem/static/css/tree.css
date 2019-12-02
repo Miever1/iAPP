@@ -1,0 +1,62 @@
+
+
+.treeContainer {
+    width: 750px;
+    height: 750px;
+    margin: 0 auto;
+    background: url("../images/tree/detail-bg.jpg") no-repeat;
+    position: relative;
+}
+
+.tree {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 500px;
+    left: 290px;
+}
+
+.tree img {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+}
+
+.waterContainer {
+    width: 220px;
+    height: 160px;
+    position: absolute;
+    top: 420px;
+    left: 480px;
+}
+
+#water {
+    visibility: hidden;
+}
+
+.waterSlider {
+    -webkit-transform: translateX(-50%);
+    -webkit-transition: -webkit-transform 2s;
+}
+
+.kettle {
+    width: 120px;
+    height: 120px;
+    background: url("../images/tree/kettls.png") no-repeat 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+.kettle img {
+    margin-left: 8px;
+}
+
+.treeCteate {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-50%);
+    display: none;
+}
+

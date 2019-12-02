@@ -196,7 +196,7 @@ a:hover { text-decoration: none; }
     float: right;
 }
 
-.calendar-content span:last-child {
+.calendar-content span:nth-child(3) {
     font-size: 28px;
     font-weight: 600;
     color: #DE5781;
@@ -207,5 +207,6 @@ a:hover { text-decoration: none; }
     border: none;
     background-color: #ccc;
     color: #fff;
+    margin: 0 10px;
 }
 

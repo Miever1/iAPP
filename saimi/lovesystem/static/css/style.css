@@ -368,3 +368,35 @@ a.btn:focus{outline: 0;}
 
 .btn-skin {color: #fff;background-color: #DE5781;min-width: 110px;}
 .btn-skin:hover {color: #fff;background-color: #333;}
+
+.usersetting {
+	width: 420px;
+	height: 160px;
+	position: fixed;
+	left: 50%;
+	top: 30%;
+	-webkit-transform: translateX(-50%);
+	background: rgba(100, 100, 100, 0.95);
+	text-align: center;
+	color: #fff;
+	display: none;
+}
+
+.usersetting label {
+	margin: 8px 0 8px 10px;
+	width: 140px;
+}
+
+.usersetting button {
+	border: none;
+	background-color: #DE5781;
+}
+
+.usersetting input {
+	background-color: #ccc;
+}
+
+.cancelBtn {
+	margin-right: 6px;
+	float: right;
+}

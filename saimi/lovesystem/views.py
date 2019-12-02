@@ -176,7 +176,7 @@ def deleteCalendar(request):
 def lovetree(request):
     if request.method == "GET":
         tree = LoveTree.objects.all().first()
-        return render(request, 'lovetree.html', {'tree': tree})
+        return render(request, 'tree.html', {'tree': tree})
 
 def createTree(request):
     if request.method == "POST":

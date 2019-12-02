@@ -15,6 +15,7 @@
     <link href="../static/css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="../static/fonts/stylesheet.css">
 	<link href="../static/css/mb-comingsoon-iceberg.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../static/css/index.css">
 	
 	<!-- Custom Fonts -->
     <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -22,6 +23,7 @@
 	<!-- jQuery and Modernizr-->
 	<script src="../static/js/jquery-2.1.1.js"></script>
 	<script src="../static/js/modernizr.custom.97074.js"></script>
+	<script src="../static/js/index.js"></script>
 
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -49,28 +51,53 @@
             </div>
 			
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav nav-justified ">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="active">
-                        <a class="page-scroll" href="/index">Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/blog">Blog</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/calendar">Time Capsule</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#">Tree</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="#">Album</a>
-                    </li>
-                </ul>
-            </div>
+            <!-- /////////////////////////////////////////Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav nav-justified ">
+						<li class="hidden">
+							<a href="#page-top"></a>
+						</li>
+						<li class="active">
+							<a class="page-scroll" href="/index">Home</a>
+						</li>
+						<li class="blogitem">
+							<a class="page-scroll" href="/blog">Blog</a>
+							<ul class="dropDown">
+								<li id="createindex"><a href="javascript:void(0);">BLOG CREATE</a></li>
+							</ul>
+						</li>
+						<li class="timecapsule">
+							<a class="page-scroll" href="/calendar">Time Capsule</a>
+							<ul class="dropDown">
+								<li id="createMemorial"><a href="javascript:void(0);">memorial creating</a></li>
+							</ul>
+						</li>
+						<li>
+							<a class="page-scroll" href="/tree">Tree</a>
+							
+						</li>
+						<li>
+							<a class="page-scroll" href="#">Album</a>
+						</li>
+						<li class="user">
+							<a class="page-scroll" href="#">User</a>
+							<ul class="dropDown">
+								<li id="cancellation"><a href="javascript:void(0);">Cancellation</a></li>
+								<li id="logout"><a href="javascript:void(0);">log out</a></li>
+								<li id="reset"><a href="javascript:void(0);">reset password</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+	</nav>
+	<!-- Navigation -->
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
@@ -248,9 +275,8 @@
 			</div>
 		</section>
 		
-		
-		
 		<!-- ////////////Content Box 06 -->
+		<!--
 		<section class="box-content box-6">
 			<div class="container">
 				<div class="row heading">
@@ -316,9 +342,21 @@
 				</div>
 			</div>
 		</section>
+			-->
 		
 	</div>
 	
+	<div class="usersetting">
+		<label for="oldpassword">original password :</label>
+		<input type="password" name="oldpassword"><br>
+		<label for="newpassword">new password :</label>
+		<input type="password" name="newpassword"><br>
+		<label for="pswconfirm">confirm password :</label>
+		<input type="password" name="pswconfirm"><br>
+		<button id="userSubmit">submit</button>
+		<button class="cancelBtn">X</button>
+	</div>
+
 	<footer>
 		<div class="wrap-footer">
 			<div class="container">

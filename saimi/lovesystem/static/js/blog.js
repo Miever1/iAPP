@@ -26,8 +26,8 @@ function getCookie(name) {
             success: function (data) {
                 let msg = data;
                 if(msg.status == "success") {
-                    alert("hello world success");
-                    window.location.href = "/index";
+                    alert("blog created successfully");
+                    window.location.href = "/blog";
                 }
                 else {
                     alert(msg.message);
@@ -62,7 +62,7 @@ function getCookie(name) {
         });  
     })
 
-    $("#page-content .art-content button").click(function () {
+    $(".editbtn").click(function () {
         let editId = $(this).attr("id").replace("edit-","");
         let id = editId;
         let articleId = "article-" +editId;
@@ -71,7 +71,10 @@ function getCookie(name) {
 
         $(".blogcreate input[name = 'itemtitle']").val(article_hd);
         $(".blogcreate textarea[name = 'itemcontent']").val(article_bd);
+        $("#createbtn").hide();
+        
         $(".blogcreate").show();
+        $(".blogcreate #editCalendar").show();
         
         $("#editsubmit").click(function () {  
                 let  title = $(".blogcreate input[name = 'itemtitle']").val();
@@ -99,4 +102,4 @@ function getCookie(name) {
 
 
 
-});
+    });

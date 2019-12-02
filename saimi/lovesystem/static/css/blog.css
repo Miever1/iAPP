@@ -1,24 +1,36 @@
+.art-content button {
+    margin: 0 10px;
+}
+
 .blogcreate {
     width: 50%;
     height: 50%;
-    background-color: pink;
     position: fixed;
     left: 25%;
     top: 25%; 
     border-radius: 10px;
     display: none;
+    
 }
 
 .blogcreate button {
    float: right;
+   margin-right: 10px;
+   background-color: #DE5781;
+   border: none;
+   color: #fff;
 }
 
 .blogcreate article {
-    background-color: skyblue;
+    background: rgba(100, 100, 100, 0.95);
     margin: 0;
     height: 100%;
+    
 }
 
+.blogcreate h2 {
+    color: #fff;
+}
 
 .blogcreate .art-header input {
     width: 100%;

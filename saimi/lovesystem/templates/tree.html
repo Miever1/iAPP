@@ -14,18 +14,17 @@
 	<!-- Custom CSS -->
     <link href="../static/css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="../static/fonts/stylesheet.css">
-	<link rel="stylesheet" href="../static/css/blog.css">
-	<link rel="stylesheet" href="../static/css/index.css">
 	<link href="../static/css/mb-comingsoon-iceberg.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/tree.css">
 	
 	<!-- Custom Fonts -->
-	<link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
 	<!-- jQuery and Modernizr-->
 	<script src="../static/js/jquery-2.1.1.js"></script>
-	<script src="../static/js/modernizr.custom.97074.js"></script>
-	<script src="../static/js/index.js"></script>
-	
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/tree.js"></script>
 
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,6 +33,7 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
 	<![endif]-->
+
 </head>
 
 <body class="sub-page">
@@ -85,7 +85,7 @@
 							<ul class="dropDown">
 								<li id="cancellation"><a href="javascript:void(0);">Cancellation</a></li>
 								<li id="logout"><a href="javascript:void(0);">log out</a></li>
-								<li id="reset"><a href="javascript:void(0);">reset password</a></li>
+								<li><a href="javascript:void(0);">reset password</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -96,7 +96,7 @@
 	</nav>
 	<!-- Navigation -->
 	
-	<header>
+	<header class="time-hd">
 		<div class="logo" class="hidden-xs">
 			<a href="#">
 				<div class="name t-right">Jason <span> Satrovsky  </span></div><div class="and">&amp;</div><div class="name t-left"> Sophie <span> Angela</span></div>
@@ -105,53 +105,41 @@
 	</header>
 	<!-- Header -->
 	
-	<!-- /////////////////////////////////////////Content -->
-	<div id="page-content">
-		<div class="container">
-			<div class="row">
-				<div id="main-content" class="col-md-8">
-					{% for journal in journals %}
-					<article id="article-{{journal.id}}">
-						<div class="art-header">
-							<a href="#"><h2>{{journal.title}}</h2></a>
-						</div>
-						<div class="art-content">
-							<img src="../static/images/10.jpg" />
-							<p>{{journal.content|safe|linebreaksbr}}</p>
-							
-							<button id="edit-{{journal.id}}" class="btn btn-skin f-right editbtn">edit</button>
-							<button id="del-{{journal.id}}" class="btn btn-skin f-right">delete</button>
-						</div>
-					</article>
-					{% endfor %}	
-				</div>	
-			</div>
-		</div>
-	</div>
+    <!-- /////////////////////////////////////////Content -->
+    
+    <div class="treeContainer">
+        <button id="createTree">create Tree</button>
+        <button id="editTree">edit Tree</button>
+        <button id="deleteTree">delete Tree</button>
+        <div class="tree">
+                id:        <span id="treeId">{{tree.id}}</span>
+                当前成长度：<span id="waterSize">{{tree.watersize}}</span>
+            <img src="../static/images/tree/speed-1-h.png" alt="">
+        </div>
+        <div class="waterContainer">
+            <img src="../static/images/tree/waters.gif" id="water" alt="">
+            <div class="kettle">
+                <img src="../static/images/tree/flasks.png" alt="">
+            </div>
+        </div> 
+    </div>
 
-	<div class="blogcreate">
-		<article>
-			<button class="cancelbtn">x</button>
-			<div class="art-header">
-				<h2>请攥写文章标题</h2>
-				<input id="article-hd" name="itemtitle" type="text">
-			</div>
-			<div class="art-content">
-				<p>请攥写文章内容</p>
-				<textarea name="itemcontent" id="article-bd" cols="30" rows="10"></textarea>
-				<button id="createbtn" class="btn btn-skin f-right">create</button>
-				<button id="editsubmit" class="btn btn-skin f-right">edit</button>
-			</div>
-		</article>	
-	</div>
+    <div class="treeCteate">
+        <label for="itemname">tree name : </label>
+        <input type="text" name="itemname">
+        <button id="treeSubmit">submit</button>
+        <button id="editSubmit">editSubmit</button>
+        <button id="cancelBtn">X</button>
+    </div>
 	
 	<footer>
 		<div class="wrap-footer">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<div class="copyright">Copyright &copy; saimi.<a target="_blank" href="#">hi</a></div>
+						<div class="copyright">Copyright &copy;saimi.</div>
 					</div>
+					
 					<div class="col-md-4">
 						<ul class="list-inline quicklinks">
 							<li><a href="#">Privacy Policy</a>
@@ -167,7 +155,7 @@
 
     <!-- Core JavaScript Files -->
    	 
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	
 
 	<!-- Plugin JavaScript -->
@@ -175,27 +163,6 @@
 	<script src="../static/js/classie.js"></script>
 	<script src="../static/js/cbpAnimatedHeader.js"></script>
 	
-	<!-- Countdown -->
-    <script src="../static/js/jquery.mb-comingsoon.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('#myCounter').mbComingsoon({ expiryDate: new Date(2016, 0, 1, 9, 30), speed:100 });
-            setTimeout(function () {
-                $(window).resize();
-            }, 200);
-        });
-    </script>
-	
-	<!-- Img Hover -->
-	<script type="text/javascript" src="../static/js/jquery.hoverdir.js"></script>	
-	<script src="../static/js/blog.js"></script>
-	<script type="text/javascript">
-		$(function() {
-		
-			$(' #da-thumbs > li ').each( function() { $(this).hoverdir(); } );
-
-		});
-	</script>
 	
 </body>
 
