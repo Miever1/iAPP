@@ -14,28 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from django.conf import settings
 from lovesystem.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login',login),
-    path('signup',signup),
-    path('logout',logout),
-    path('index',index),
-    path('reset',reset),
-    path('blog',journal),
-    path('createJournal',createJournal),
+    path('login', login),
+    path('signup', signup),
+    path('logout', logout),
+    path('index', index),
+    path('reset', reset),
+    path('blog', journal),
+    path('createJournal', createJournal),
     path('editJournal', editJournal),
     path('deleteJournal', deleteJournal),
-    path('calendar',calendar),
+    path('calendar', calendar),
     path('createCalendar', createCalendar),
     path('editCalendar', editCalendar),
     path('deleteCalendar', deleteCalendar),
-    path('tree',lovetree),
-    path('createTree', createTree),
-    path('editTree', editTree),
-    path('deleteTree', deleteTree),
-    path('addWater', addWater),
 ]

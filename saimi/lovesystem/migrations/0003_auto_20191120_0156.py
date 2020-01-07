@@ -13,10 +13,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Journal',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=50, verbose_name='标题')),
                 ('content', models.CharField(max_length=2000, verbose_name='内容')),
-                ('publishtime', models.DateTimeField(auto_now=True, verbose_name='发布日期')),
+                ('publishtime', models.DateTimeField(
+                    auto_now=True, verbose_name='发布日期')),
             ],
             options={
                 'verbose_name': '日记',
@@ -26,6 +28,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='gender',
-            field=models.CharField(choices=[('M', 'Male'), ('F', 'Female')], default='M', max_length=1),
+            field=models.CharField(
+                choices=[('M', 'Male'), ('F', 'Female')], default='M', max_length=1),
         ),
     ]

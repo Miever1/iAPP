@@ -5,10 +5,6 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('lovesystem', '0005_lovetree'),
-    ]
-
     operations = [
         migrations.AddField(
             model_name='calendar',
@@ -19,10 +15,5 @@ class Migration(migrations.Migration):
             model_name='journal',
             name='createdBy',
             field=models.IntegerField(null=True, verbose_name='发布用户'),
-        ),
-        migrations.AddField(
-            model_name='lovetree',
-            name='createBy',
-            field=models.IntegerField(null=True, verbose_name='创建用户'),
         ),
     ]
